@@ -1,0 +1,24 @@
+body{
+  margin:0;
+  background: radial-gradient(circle at top,#0f172a,#020617 70%);
+  color:#e2e8f0;
+  font-family: "Inter", sans-serif;
+}
+
+.global-header{
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  background: radial-gradient(circle at top,#0f172a,#020617 70%);
+  color: #38bdf8;
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  padding: 15px 0;
+  /* border-bottom: 1px solid rgba(255,255,255,0.08); */
+}
+
+
+h1[_ngcontent-ng-c2553731897] {
+display: none !important;
+}

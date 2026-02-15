@@ -1,0 +1,26 @@
+{
+  "name": "@sam-7966169c-a715-49a8-a5c2-35d1d6ebe1bd/api-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@sam-7966169c-a715-49a8-a5c2-35d1d6ebe1bd/api"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/api-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@sam-7966169c-a715-49a8-a5c2-35d1d6ebe1bd/api:build",
+          "@sam-7966169c-a715-49a8-a5c2-35d1d6ebe1bd/api:serve"
+        ]
+      }
+    }
+  }
+}

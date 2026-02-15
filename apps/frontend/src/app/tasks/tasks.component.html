@@ -1,0 +1,100 @@
+<div class="page-wrapper">
+
+  <div class="dashboard">
+
+    <!-- TOP SECTION (Header + Add form) -->
+    <div class="top-section">
+
+      <!-- Header -->
+      <div class="topbar">
+        <h1>Welcome, {{ username }}</h1>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+      </div>
+
+      <!-- Add Task -->
+      <div class="card form-card">
+        <h3>Add New Task</h3>
+
+        <div class="form-group">
+          <label>Task Title</label>
+          <input [(ngModel)]="newTask.title" placeholder="Enter title" />
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <input [(ngModel)]="newTask.description" placeholder="Enter description" />
+        </div>
+
+        <button class="add-btn" (click)="addTask()">Add Task</button>
+      </div>
+
+    </div>
+
+    <!-- TABLE SECTION -->
+    <div class="card list-card">
+      <h3>Your Tasks</h3>
+
+      <input
+        class="search-box"
+        placeholder="Search tasks..."
+        [(ngModel)]="searchText"
+      />
+
+      <table class="task-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th (click)="sortByTitle()">Title ⬍</th>
+            <th>Description</th>
+            <th>Created Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let task of paginatedTasks; let i = index">
+            <td>{{ (currentPage - 1) * pageSize + i + 1 }}</td>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.createdAt | date:'short' }}</td>
+            <td>
+              <button (click)="editTask(task)" class="btn edit">Edit</button>
+              <button (click)="deleteTask(task.id)" class="btn danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pagination">
+        <button (click)="prevPage()" [disabled]="currentPage === 1">⟵ Prev</button>
+        <span>Page {{currentPage}}</span>
+        <button (click)="nextPage()" [disabled]="currentPage * pageSize >= filteredTasks.length">Next ⟶</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Edit Modal -->
+<div class="modal-overlay" *ngIf="editingTaskId">
+  <div class="modal-box">
+    <h3>Edit Task</h3>
+
+    <div class="form-group">
+      <label>Title</label>
+      <input [(ngModel)]="editModel.title">
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <input [(ngModel)]="editModel.description">
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn" (click)="cancelEdit()">Cancel</button>
+      <button class="btn edit" (click)="saveEdit(editingTaskId)">Save</button>
+    </div>
+  </div>
+</div>

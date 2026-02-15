@@ -1,0 +1,148 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top left, #121212, #0a0a0a 90%);
+  color: #e0e0e0;
+  overflow: hidden;
+}
+ 
+/* Background glow animation */
+body::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    #0078ff,
+    #00c6ff,
+    #ff0099,
+    #ff6f00,
+    #0078ff
+  );
+  animation: spin 15s linear infinite;
+  filter: blur(180px);
+  opacity: 0.12;
+  z-index: 0;
+}
+ 
+h1{
+  text-align: center;
+}
+ 
+ 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+ 
+/* ===== Login container ===== */
+.login-container {
+  position: relative;
+  z-index: 1;
+  width: 380px;
+  padding: 40px 35px;
+  background: rgba(25, 25, 25, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+ 
+/* ===== Heading ===== */
+.login-container h2 {
+  margin-bottom: 25px;
+  color: #00c6ff;
+  font-weight: 700;
+  font-size: 28px;
+  text-shadow: 0 0 8px rgba(0, 198, 255, 0.5);
+}
+ 
+/* ===== Form styling ===== */
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* makes all children same width */
+  width: 100%;
+}
+ 
+/* ===== Labels ===== */
+.login-container label {
+  text-align: left;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #b0b0b0;
+}
+ 
+/* ===== Input fields ===== */
+.login-container input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+ 
+.login-container input:focus {
+  border-color: #00c6ff;
+  box-shadow: 0 0 8px rgba(0, 198, 255, 0.4);
+}
+ 
+/* ===== Button ===== */
+.login-container button {
+  width: 100%;
+  background: linear-gradient(90deg, #0078ff, #00c6ff);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+ 
+.login-container button:hover {
+  background: linear-gradient(90deg, #00a2ff, #00e1ff);
+  box-shadow: 0 0 12px rgba(0, 198, 255, 0.6);
+  transform: translateY(-2px);
+}
+ 
+/* ===== Responsive design ===== */
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    padding: 25px;
+  }
+}
+.conatainerMain{
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.login-container[_ngcontent-ng-c3076911896] {
+    position: relative;
+    z-index: 1;
+    width: 380px;
+    padding: 40px 35px;
+    background: rgb(239 239 239 / 7%)  !important;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
